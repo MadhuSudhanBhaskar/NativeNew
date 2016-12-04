@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
 console.log('in service');
         //Get cities
 
-this.myItems = this.userservice.getCityDetails();
+
         var location = geolocation.getCurrentLocation({desiredAccuracy: 3, updateDistance: 10,  timeout: 20000})
         .then((loc) => {
 
@@ -67,6 +67,7 @@ this.myItems = this.userservice.getCityDetails();
                     longitude : loc.longitude,
                 });
                 this.latiNew = loc;
+                this.myItems = this.userservice.getCityDetails();
                 console.dump(this.latiNew);
             }
         }, (e) => {
